@@ -16,4 +16,6 @@ The rules of the algorithm are simple:
 
 ## Site Demo (Github Pages)
 
+![Game of Life Demo](game-of-life-demo.gif)
+
 You can simulate the Game of Life yourself at https://rishiskhare.github.io/game-of-life
