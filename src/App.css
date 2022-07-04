@@ -20,7 +20,6 @@ body {
   border: 0.5px solid #000a0d;
   width: 16px;
   height: 16px;
-  transition: 0.3s;
 }
 
 .form-switch .form-check-input {
@@ -38,6 +37,7 @@ body {
 
 .square:hover {
   background: #00008b;
+  transition: 0.3s;
 }
 
 .grid {
