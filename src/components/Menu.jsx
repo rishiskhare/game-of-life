@@ -16,14 +16,14 @@ const Menu = ({
       <ButtonToolbar className="d-flex flex-row align-items-center justify-content-center">
         {isRunning ? (
           <button
-            className="mx-2 p-2 btn play-pause-btn"
+            className="mr-3 p-2 btn play-pause-btn"
             onClick={() => setIsRunning(false)}
           >
             Pause
           </button>
         ) : (
           <button
-            className="mx-2 p-2 btn play-pause-btn"
+            className="mr-3 p-2 btn play-pause-btn"
             onClick={() => setIsRunning(true)}
           >
             Play
@@ -31,13 +31,13 @@ const Menu = ({
         )}
 
         <Form.Range
-          className="mx-2 p-2 slider"
+          className="mx-3 p-0 slider"
           min="1"
           max="200"
           value={delay}
           onChange={changeDelay}
         />
-        <button className="mx-2 p-2 btn" onClick={randomizeGrid}>
+        <button className="ml-2 mr-2 p-2 btn" onClick={randomizeGrid}>
           Randomize
         </button>
         <button className="mx-2 p-2 btn" onClick={resetGrid}>
