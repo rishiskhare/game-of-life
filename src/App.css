@@ -63,6 +63,10 @@ body {
   width: 200px;
 }
 
+.menu .play-pause-btn {
+  width: 60px;
+}
+
 #gen-counter {
   text-align: center;
   padding-left: 48px;

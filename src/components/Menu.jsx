@@ -13,19 +13,17 @@ const Menu = ({
 }) => {
   return (
     <div className="menu">
-      <ButtonToolbar className="d-flex flex-row align-items-center justify-content-xl-between">
+      <ButtonToolbar className="d-flex flex-row align-items-center justify-content-center">
         {isRunning ? (
           <button
-            style={{ width: "80px" }}
-            className="mx-3 p-2 btn btn-default"
+            className="mx-1 p-2 btn play-pause-btn"
             onClick={() => setIsRunning(false)}
           >
             Pause
           </button>
         ) : (
           <button
-            style={{ width: "80px" }}
-            className="mx-3 p-2 btn btn-default"
+            className="mx-1 p-2 btn play-pause-btn"
             onClick={() => setIsRunning(true)}
           >
             Play
@@ -33,16 +31,16 @@ const Menu = ({
         )}
 
         <Form.Range
-          className="mx-3 p-2 slider"
+          className="mx-1 p-2 slider"
           min="1"
           max="200"
           value={delay}
           onChange={changeDelay}
         />
-        <button className="mx-3 p-2 btn btn-default" onClick={randomizeGrid}>
+        <button className="mx-1 p-2 btn" onClick={randomizeGrid}>
           Randomize
         </button>
-        <button className="mx-3 p-2 btn btn-default" onClick={resetGrid}>
+        <button className="mx-1 p-2 btn" onClick={resetGrid}>
           Reset
         </button>
         <Form.Check
@@ -51,7 +49,7 @@ const Menu = ({
           label="Wrap-around"
           value={wrapAround}
           onClick={toggleWrapAround}
-          className="ml-3 p-2"
+          className="ml-2 p-2"
         />
       </ButtonToolbar>
     </div>
