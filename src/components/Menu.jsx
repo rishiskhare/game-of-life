@@ -6,7 +6,7 @@ const Menu = ({
   setIsRunning,
   delay,
   changeDelay,
-  clearGrid,
+  resetGrid,
   randomizeGrid,
   wrapAround,
   toggleWrapAround,
@@ -42,8 +42,8 @@ const Menu = ({
         <button className="mx-3 p-2 btn btn-default" onClick={randomizeGrid}>
           Randomize
         </button>
-        <button className="mx-3 p-2 btn btn-default" onClick={clearGrid}>
-          Clear
+        <button className="mx-3 p-2 btn btn-default" onClick={resetGrid}>
+          Reset
         </button>
         <Form.Check
           type="switch"

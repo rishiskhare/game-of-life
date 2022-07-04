@@ -106,7 +106,7 @@ const App = () => {
     randomizeGrid();
   }, []);
 
-  const clearGrid = () => {
+  const resetGrid = () => {
     setGrid(generateDefaultGrid(numRows, numCols));
     setGeneration(0);
   };
@@ -123,7 +123,7 @@ const App = () => {
         setIsRunning={setIsRunning}
         delay={delay}
         changeDelay={changeDelay}
-        clearGrid={clearGrid}
+        resetGrid={resetGrid}
         randomizeGrid={randomizeGrid}
         wrapAround={wrapAround}
         toggleWrapAround={toggleWrapAround}
