@@ -16,4 +16,4 @@ The rules of the algorithm are simple:
 
 ## Site Demo (Github Pages)
 
-You can simulate the Game of Life yourself at https://rishiskhare.github.io/rock-paper-scissors-lizard-spock
+You can simulate the Game of Life yourself at https://rishiskhare.github.io/game-of-life
