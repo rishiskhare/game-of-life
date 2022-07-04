@@ -9,10 +9,9 @@ const App = () => {
   const [generation, setGeneration] = useState(0);
   const [isRunning, setIsRunning] = useState(true);
   const [delay, setDelay] = useState(100);
-  const numRows = 30;
-  const numCols = 50;
+  const numRows = 40;
+  const numCols = 40;
   const [wrapAround, setWrapAround] = useState(false);
-
   const [grid, setGrid] = useState(generateDefaultGrid(numRows, numCols));
 
   const toggleSquare = (row, col) => {
@@ -25,10 +24,10 @@ const App = () => {
     let randomizedGrid = JSON.parse(JSON.stringify(grid));
     for (let row = 0; row < numRows; row++) {
       for (let col = 0; col < numCols; col++) {
-        if (Math.floor(Math.random() * 4) === 1) {
+        randomizedGrid[row][col] = false;
+        const generateLife = Math.floor(Math.random() * 4) === 1;
+        if (generateLife) {
           randomizedGrid[row][col] = true;
-        } else {
-          randomizedGrid[row][col] = false;
         }
       }
     }
@@ -70,27 +69,23 @@ const App = () => {
   };
 
   const inBounds = (row, col) => {
-    if (row >= 0 && row < numRows && col >= 0 && col < numCols) {
-      return true;
-    }
-    return false;
+    return row >= 0 && row < numRows && col >= 0 && col < numCols;
   };
 
   const isNeighbor = (row, col) => {
-    if (
-      wrapAround &&
-      grid[(row + numRows) % numRows][(col + numCols) % numCols]
-    ) {
-      return 1;
-    }
-    if (!wrapAround && inBounds(row, col) && grid[row][col]) {
-      return 1;
-    }
-    return 0;
+    return (wrapAround &&
+      grid[(row + numRows) % numRows][(col + numCols) % numCols]) ||
+      (!wrapAround && inBounds(row, col) && grid[row][col])
+      ? 1
+      : 0;
   };
 
   const countNeighbors = (row, col) => {
     let neighbors = 0;
+    // x x x
+    // x o x
+    // x x x
+    // Need to count all eight neighbors around a cell (including diagonals)
     neighbors += isNeighbor(row - 1, col - 1);
     neighbors += isNeighbor(row - 1, col);
     neighbors += isNeighbor(row - 1, col + 1);
@@ -102,6 +97,7 @@ const App = () => {
     return neighbors;
   };
 
+  // Randomize grid as soon as component is first rendered
   useEffect(() => {
     randomizeGrid();
   }, []);

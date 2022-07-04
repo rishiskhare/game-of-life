@@ -16,10 +16,10 @@ body {
 }
 
 .square {
+  width: 12px;
+  height: 12px;
   display: inline-block;
   border: 0.5px solid #000a0d;
-  width: 16px;
-  height: 16px;
 }
 
 .form-switch .form-check-input {
@@ -27,11 +27,11 @@ body {
   margin-right: 8px;
 }
 
-.dead {
+.square.dead {
   background-color: #bfbfbd;
 }
 
-.alive {
+.square.alive {
   background-color: #326ee1;
 }
 
@@ -41,16 +41,13 @@ body {
 }
 
 .grid {
-  width: 800px;
-  line-height: 0;
-  margin: auto;
-  margin-top: 16px;
-  margin-bottom: 16px;
+  width: 480px;
+  margin: 16px auto;
+  line-height: 0px;
 }
 
 #title {
   font-family: "Bungee", cursive;
-  color: #000a0d;
   font-size: 64px;
 }
 
@@ -62,7 +59,7 @@ body {
   margin-top: 16px;
 }
 
-.slider {
+.menu .slider {
   width: 200px;
 }
 
