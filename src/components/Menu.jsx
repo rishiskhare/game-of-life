@@ -2,8 +2,8 @@ import React from "react";
 import { ButtonToolbar, Form } from "react-bootstrap";
 
 const Menu = ({
-  isRunning,
-  setIsRunning,
+  proceed,
+  setProceed,
   delay,
   changeDelay,
   resetGrid,
@@ -14,17 +14,17 @@ const Menu = ({
   return (
     <div className="menu">
       <ButtonToolbar className="d-flex flex-row align-items-center justify-content-center">
-        {isRunning ? (
+        {proceed ? (
           <button
             className="mr-3 p-2 btn play-pause-btn"
-            onClick={() => setIsRunning(false)}
+            onClick={() => setProceed(false)}
           >
             Pause
           </button>
         ) : (
           <button
             className="mr-3 p-2 btn play-pause-btn"
-            onClick={() => setIsRunning(true)}
+            onClick={() => setProceed(true)}
           >
             Play
           </button>

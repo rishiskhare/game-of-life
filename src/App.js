@@ -7,7 +7,7 @@ import Menu from "./components/Menu";
 
 const App = () => {
   const [generation, setGeneration] = useState(0);
-  const [isRunning, setIsRunning] = useState(true);
+  const [proceed, setProceed] = useState(true);
   const [delay, setDelay] = useState(100);
   const numRows = 40;
   const numCols = 40;
@@ -16,7 +16,7 @@ const App = () => {
 
   const toggleSquare = (row, col) => {
     let updatedGrid = JSON.parse(JSON.stringify(grid));
-    updatedGrid[row][col] = !updatedGrid[row][col];
+    updatedGrid[row][col] = updatedGrid[row][col] === 0 ? 1 : 0;
     setGrid(updatedGrid);
   };
 
@@ -24,10 +24,10 @@ const App = () => {
     let randomizedGrid = JSON.parse(JSON.stringify(grid));
     for (let row = 0; row < numRows; row++) {
       for (let col = 0; col < numCols; col++) {
-        randomizedGrid[row][col] = false;
+        randomizedGrid[row][col] = 0;
         const generateLife = Math.floor(Math.random() * 4) === 1;
         if (generateLife) {
-          randomizedGrid[row][col] = true;
+          randomizedGrid[row][col] = 1;
         }
       }
     }
@@ -44,16 +44,16 @@ const App = () => {
 
         // Any live cell with two or three live neighbours survives
         if (grid[row][col] && (neighbors === 2 || neighbors === 3)) {
-          updatedGrid[row][col] = true;
+          updatedGrid[row][col] = 1;
 
           // Any dead cell with three live neighbours becomes a live cell
         } else if (!grid[row][col] && neighbors === 3) {
-          updatedGrid[row][col] = true;
+          updatedGrid[row][col] = 1;
 
           // All other live cells die in the next generation
           // Similarly, all other dead cells stay dead
         } else {
-          updatedGrid[row][col] = false;
+          updatedGrid[row][col] = 0;
         }
       }
     }
@@ -62,7 +62,7 @@ const App = () => {
   };
 
   const speed = 200 - delay;
-  useInterval(nextGeneration, isRunning ? speed : null);
+  useInterval(nextGeneration, proceed ? speed : null);
 
   const changeDelay = (changeEvent) => {
     setDelay(changeEvent.target.value);
@@ -74,8 +74,8 @@ const App = () => {
 
   const isNeighbor = (row, col) => {
     return (wrapAround &&
-      grid[(row + numRows) % numRows][(col + numCols) % numCols]) ||
-      (!wrapAround && inBounds(row, col) && grid[row][col])
+      grid[(row + numRows) % numRows][(col + numCols) % numCols] === 1) ||
+      (!wrapAround && inBounds(row, col) && grid[row][col] === 1)
       ? 1
       : 0;
   };
@@ -115,8 +115,8 @@ const App = () => {
     <div className="App">
       <h1 id="title">Game Of Life</h1>
       <Menu
-        isRunning={isRunning}
-        setIsRunning={setIsRunning}
+        proceed={proceed}
+        setProceed={setProceed}
         delay={delay}
         changeDelay={changeDelay}
         resetGrid={resetGrid}
@@ -143,7 +143,7 @@ const generateDefaultGrid = (rows, cols) => {
   for (let row = 0; row < rows; row++) {
     defaultGrid[row] = new Array(cols);
     for (let col = 0; col < cols; col++) {
-      defaultGrid[row][col] = false;
+      defaultGrid[row][col] = 0;
     }
   }
   return defaultGrid;
