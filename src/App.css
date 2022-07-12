@@ -65,6 +65,7 @@ body {
 
 .menu .play-pause-btn {
   width: 64px;
+  margin-right: 16px;
 }
 
 #gen-counter {

@@ -40,7 +40,6 @@ const App = () => {
     for (let row = 0; row < numRows; row++) {
       for (let col = 0; col < numCols; col++) {
         const neighbors = countNeighbors(row, col);
-        console.log("row" + row + "col" + col + "neighbors" + neighbors);
 
         // Any live cell with two or three live neighbours survives
         if (grid[row][col] && (neighbors === 2 || neighbors === 3)) {

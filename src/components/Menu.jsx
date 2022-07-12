@@ -16,14 +16,14 @@ const Menu = ({
       <ButtonToolbar className="d-flex flex-row align-items-center justify-content-center">
         {proceed ? (
           <button
-            className="mr-3 p-2 btn play-pause-btn"
+            className="p-2 btn play-pause-btn"
             onClick={() => setProceed(false)}
           >
             Pause
           </button>
         ) : (
           <button
-            className="mr-3 p-2 btn play-pause-btn"
+            className="p-2 btn play-pause-btn"
             onClick={() => setProceed(true)}
           >
             Play
@@ -37,10 +37,10 @@ const Menu = ({
           value={delay}
           onChange={changeDelay}
         />
-        <button className="ml-2 mr-2 p-2 btn" onClick={randomizeGrid}>
+        <button className="mx-3 p-2 btn" onClick={randomizeGrid}>
           Randomize
         </button>
-        <button className="mx-2 p-2 btn" onClick={resetGrid}>
+        <button className="mx-3 p-2 btn" onClick={resetGrid}>
           Reset
         </button>
         <Form.Check
@@ -49,7 +49,7 @@ const Menu = ({
           label="Wrap-around"
           value={wrapAround}
           onClick={toggleWrapAround}
-          className="ml-2 p-2"
+          className="ml-3 p-2"
         />
       </ButtonToolbar>
     </div>
