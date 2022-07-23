@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project implements the famous "Game of Life" conjured by Cambridge mathematician John H Conway ([YouTube](https://www.youtube.com/watch?v=R9Plq-D1gEk&t=28s)) to simulate Darwin's Theory of Evolution, in a sense.
+This project implements the famous "Game of Life" conjured by Cambridge mathematician John H Conway ([YouTube](https://www.youtube.com/watch?v=R9Plq-D1gEk&t=28s)) to simulate evolution.
 
 ## Rules of Game of Life
 
